@@ -9,6 +9,14 @@
         <RepositoryUrl>https://github.com/DuncanMcPherson/semantic-abstractions</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageTags>release</PackageTags>
+        <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <Version>1.0.1</Version>
     </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="LICENSE.md" Pack="true" PackagePath="" />
+        <None Include="README.md" Pack="true" PackagePath="" />
+    </ItemGroup>
 
 </Project>
