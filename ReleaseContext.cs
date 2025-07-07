@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace SemanticRelease.Abstractions
 {
@@ -22,6 +23,15 @@ namespace SemanticRelease.Abstractions
         /// It is initialized during the creation of the ReleaseContext and cannot be null.
         /// </remarks>
         public ReleaseConfig Config { get; }
+
+        /// <summary>
+        /// This property handles the output of various plugins. The expected format is <c>propertyName</c>: <c>propertyValue</c>
+        /// </summary>
+        /// <example>
+        /// var releaseVersion = "1.0.2";
+        /// releaseContext.PluginData["releaseVersion"] = "1.0.2";
+        /// </example>
+        public Dictionary<string, object> PluginData { get; } = new Dictionary<string, object>();
 
         /// <summary>
         /// Represents the context for a release process, providing access to the working directory
