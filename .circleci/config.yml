@@ -24,6 +24,13 @@ jobs:
   build:
     executor: dotnet-executor
     steps:
+      - run:
+          name: Skip if Not a Pull Request
+          command: |
+            if [ -z "$CIRCLE_PULL_REQUEST" ]; then
+              echo "Not a pull request. Skipping job."
+              circleci-agent step halt
+            fi
       - checkout
       - run: dotnet restore
       - run: dotnet build --no-restore -c Release
@@ -93,6 +100,6 @@ workflows:
       - build:
           filters:
             branches:
-              ignore: /.*/   # Do not run directly on branches
-            pull_requests:
-              only: /.*/     # Run on all PRs
+              ignore: master
+            tags:
+              ignore: /.*/
