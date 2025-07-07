@@ -77,7 +77,8 @@ jobs:
     executor: dotnet-executor
     steps:
       - attach_workspace:
-          at: /artifacts
+          at: ./artifacts
+      - run: ls -R
       - run:
           name: Validate presence of API Key
           command: 'echo "Key is: ${NugetAuthentication:0:4}****"'
