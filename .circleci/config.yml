@@ -98,6 +98,7 @@ workflows:
             tags:
               ignore: /.*/
       - pack:
+          context: DeploymentKeys
           requires:
             - check-commit
       - publish:
