@@ -1,6 +1,12 @@
+[![CircleCI](https://dl.circleci.com/status-badge/img/circleci/LpXcVzoLa44A5kgTjLmBgT/JWPtkeXNrcGfBBnDxUmjs1/tree/master.svg?style=shield)](https://dl.circleci.com/status-badge/redirect/circleci/LpXcVzoLa44A5kgTjLmBgT/JWPtkeXNrcGfBBnDxUmjs1/tree/master)
+![NuGet Version](https://img.shields.io/nuget/v/SemanticRelease.Abstractions)
+![NuGet Downloads](https://img.shields.io/nuget/dt/SemanticRelease.Abstractions)
+
 # SemanticRelease.Abstractions
 
 A .NET Standard library providing abstractions and core interfaces for semantic versioning and release management.
+Inspired by the Node.js [semantic-release](https://npmjs.com/package/semantic-release) tool, this was designed to make 
+versioning and releasing dotnet packages easy.
 
 ## Overview
 
