@@ -32,6 +32,8 @@ namespace SemanticRelease.Abstractions
         /// releaseContext.PluginData["releaseVersion"] = "1.0.2";
         /// </example>
         public Dictionary<string, object> PluginData { get; } = new Dictionary<string, object>();
+        
+        public bool DryRun { get; }
 
         /// <summary>
         /// Represents the context for a release process, providing access to the working directory
@@ -43,13 +45,17 @@ namespace SemanticRelease.Abstractions
         /// <param name="config">
         /// The config for the release as specified in the json configuration file
         /// </param>
+        /// <param name="dryRun">
+        /// Whether to make any file or git changes during the release process.
+        /// </param>
         /// <exception cref="ArgumentNullException">
         /// Throws an exception if either <c>workingDirectory</c> or <c>config</c> are not present
         /// </exception>
-        public ReleaseContext(string workingDirectory, ReleaseConfig config)
+        public ReleaseContext(string workingDirectory, ReleaseConfig config, bool dryRun = false)
         {
             WorkingDirectory = workingDirectory ?? throw new ArgumentNullException(nameof(workingDirectory));
             Config = config ?? throw new ArgumentNullException(nameof(config));
+            DryRun = dryRun;
         }
     }
 }
