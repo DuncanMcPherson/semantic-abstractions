@@ -13,14 +13,14 @@
     [
       "@semantic-release/exec",
       {
-        "prepareCmd": "sed -i \"s|<Version>.*</Version>|<Version>${nextRelease.version}</Version>|\" SemanticRelease.Abstractions.csproj"
+        "prepareCmd": "chmod +x ./scripts/build-and-pack.sh",
+        "publishCmd": "./scripts/build-and-pack.sh ${nextRelease.version} '${nextRelease.notes}'"
       }
     ],
     [
       "@semantic-release/git",
       {
         "assets": [
-          "SemanticRelease.Abstractions.csproj",
           "CHANGELOG.md"
         ],
         "message": "chore: v${nextRelease.version} [skip ci]"
