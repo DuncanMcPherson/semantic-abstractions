@@ -6,18 +6,6 @@ executors:
       - image: mcr.microsoft.com/dotnet/sdk:8.0
 
 jobs:
-  check-commit:
-    docker:
-      - image: cimg/base:stable
-    steps:
-      - checkout
-      - run: |
-          COMMIT_MSG=$(git log -1 --pretty=%B)
-          echo "Commit message: $COMMIT_MSG"
-          if echo "$COMMIT_MSG" | grep -q "\[skip ci\]"; then
-            echo "Skipping due to [skip ci]"
-            circleci-agent step halt
-          fi
   build:
     executor: dotnet-executor
     steps:
@@ -91,16 +79,13 @@ jobs:
 workflows:
   release:
     jobs:
-      - check-commit:
+      - pack:
+          context: DeploymentKeys
           filters:
             branches:
               only: master
             tags:
               ignore: /.*/
-      - pack:
-          context: DeploymentKeys
-          requires:
-            - check-commit
       - publish:
           context: DeploymentKeys
           requires:

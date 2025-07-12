@@ -17,16 +17,16 @@ namespace SemanticRelease.Abstractions
         public IReadOnlyList<string> Branches { get; } = new List<string> { "main" };
 
         public string TagFormat { get; } = "v{version}";
-        public Dictionary<string, object>? PluginConfigs { get; }
+        public Dictionary<string, IPluginConfig>? PluginConfigs { get; }
 
         public ReleaseConfig(string? tagFormat = null,
-            Dictionary<string, object>? pluginConfigs = null, List<string>? branches = null)
+            Dictionary<string, IPluginConfig>? pluginConfigs = null, List<string>? branches = null)
         {
             if (branches != null)
             {
                 Branches = branches;
             }
-            TagFormat = tagFormat ?? "v{version}";
+            TagFormat = tagFormat ?? TagFormat;
             PluginConfigs = pluginConfigs;
         }
     }
