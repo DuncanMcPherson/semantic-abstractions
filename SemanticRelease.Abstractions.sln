@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".circleci", ".circleci", "{
 		.circleci\config.yml = .circleci\config.yml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{6D460585-C477-446A-AAB8-7B1B228C5EC8}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{DDD8D028-566C-41BF-865F-9A5B94C23D70}"
 	ProjectSection(SolutionItems) = preProject
 		scripts\build-and-pack.sh = scripts\build-and-pack.sh
 	EndProjectSection
